@@ -3,13 +3,13 @@ pipeline:
   tools:
     maven: "maven"
   stages:
-    - stage: "BuildJava"
+    - stage: BuildJava
       steps:
         - MavenCleanPackage()
-    - stage: "Test"
+    - stage: Test
       steps:
         - MavenTest()
-    - stage: "DockerBuild"
+    - stage: DockerBuild
       steps:
         - DockerBuild()
 
