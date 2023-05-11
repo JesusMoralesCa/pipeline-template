@@ -1,21 +1,16 @@
 pipeline:
-
+  agent any
   tools:
-  maven: "maven"
-
+    maven: "maven"
   stages:
     - stage: "BuildJava"
-        steps:
-          
-          - MavenCleanPackage()
-
+      steps:
+        - MavenCleanPackage()
     - stage: "Test"
-        steps:
-          
-          - MavenTest()
-
+      steps:
+        - MavenTest()
     - stage: "DockerBuild"
-        steps:
-          
-          - DockerBuild()
+      steps:
+        - DockerBuild()
+
 
