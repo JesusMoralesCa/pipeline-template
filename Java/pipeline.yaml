@@ -3,9 +3,6 @@
   tools:
     maven: maven
   stages:
-    - stage: BuildJava
-      steps:
-        - MavenCleanPackage()
     - stage: Test
       steps:
         - MavenTest()
