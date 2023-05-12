@@ -3,9 +3,15 @@
   tools:
     maven: maven
   stages:
+    - stage: "Build and Package"
+      steps:
+        - name: "Clean and Package"
+          MavenCleanPackage()
     - stage: Test
       steps:
-        - MavenTest()
-    - stage: DockerBuild
+        - name: "Run Tests"
+          MavenTest()
+    - stage: "Build and Publish Docker Image"
       steps:
-        - DockerBuild()
+        - name: "Build Docker Image"
+          DockerBuild()
