@@ -1,9 +1,8 @@
----
 pipeline:
   agent:
     label: master
   tools:
-    - maven: maven
+    maven: maven
   stages:
     - stage: BuildJava
       steps:
