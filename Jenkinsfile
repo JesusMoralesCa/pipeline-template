@@ -13,7 +13,7 @@ pipeline {
                 script {
                     def file = readProperties file: 'project.properties'
                     env.image = file['imageName']
-                    WBuild()
+                    W2Build()
                     
                 }
             }
