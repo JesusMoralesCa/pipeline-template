@@ -1,13 +1,13 @@
-  stages:
-    - stage: BuildJava
-          steps:
-        - srcCheckout()
-        - srcMavenCleanPackage()
-    - stage: Test
-          steps:
-          - srcMavenTest()
-    - stage: DockerBuild
+stages:
+  - stage: BuildJava
     steps:
-        - srcDockerBuild()
+      - srcCheckout()
+      - srcMavenCleanPackage()
+  - stage: Test
+    steps:
+      - srcMavenTest()
+  - stage: DockerBuild
+    steps:
+      - srcDockerBuild()
 
 
