@@ -5,6 +5,7 @@
   stages:
     - stage: BuildJava
           steps:
+        - srcCheckout()
         - srcMavenCleanPackage()
     - stage: Test
           steps:
