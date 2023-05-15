@@ -1,5 +1,5 @@
 @Library('java-node') _
-import org.foo.*
+
 
 pipeline {
     agent {
