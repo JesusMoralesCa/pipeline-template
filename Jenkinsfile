@@ -1,4 +1,4 @@
-@Library('java-node').org.foo.BuildJava() _
+@Library('java-node') _
 pipeline {
     agent {
         label('master')
