@@ -1,7 +1,7 @@
 stages:
   - stage: BuildJava
     steps:
-      - srcMavenCleanPackage
+      - srcMavenCleanPackage()
   - stage: Test
     steps:
       - srcMavenTest()
