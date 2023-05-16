@@ -11,7 +11,7 @@ pipeline {
         stage('Read properties and checkout') {
             steps {
 
-                    WBuild2()
+                    WBuild()
 
             }
         }
