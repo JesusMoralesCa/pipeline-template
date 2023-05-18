@@ -1,12 +1,6 @@
 stages:
   - stage: BuildJava
-    steps:
-      - MavenCleanPackage()
   - stage: Test
-    steps:
-      - MavenTest()
   - stage: DockerBuild
-    steps:
-      - DockerBuild()
-
+    
 
