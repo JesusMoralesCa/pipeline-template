@@ -19,7 +19,6 @@ pipeline {
    stages {
         stage('Read properties and checkout') {
             steps {
-                    hola()
                     WBuild()
 
             }
