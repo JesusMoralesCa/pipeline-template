@@ -27,7 +27,7 @@ pipeline {
       steps {
         script {
           def sonarProps = readProperties file: 'sonar-project.properties'
-          withSonarQubeEnv('SonarScanner') {
+          withSonarQubeEnv('sonarqube') {
             sh "sonar-scanner -Dsonar.projectKey=${sonarProps.getProperty('sonar.projectKey')} -Dsonar.sources=${sonarProps.getProperty('sonar.sources')}"
           }
         }
