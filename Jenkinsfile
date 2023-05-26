@@ -17,6 +17,13 @@ pipeline {
         stage('SCM') {
             steps {
                 checkout scm
+                script{
+                        checkout scmGit(
+                            branches: [[name: '*/main']],
+                            extensions: [],
+                            userRemoteConfigs: [[url: 'https://github.com/JesusMoralesCa/Java-Node.git']]
+                        )
+                }
             }
         }
 
