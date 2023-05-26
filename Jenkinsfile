@@ -4,6 +4,7 @@
 pipeline {
     agent {
         label('master')
+        sonarqube 'SonarScanner'
     }
     
     
