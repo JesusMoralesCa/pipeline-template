@@ -9,7 +9,7 @@ pipeline {
     
       tools {
         maven 'maven'
-        sonarqube 'SonarScanner'
+        sonarScanner 'SonarScanner'
     }
 
     environment{
