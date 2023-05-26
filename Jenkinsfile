@@ -4,12 +4,12 @@
 pipeline {
     agent {
         label('master')
-        sonarqube 'SonarScanner'
     }
     
     
       tools {
         maven 'maven'
+        sonarqube 'SonarScanner'
     }
 
     environment{
