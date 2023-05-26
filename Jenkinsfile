@@ -17,17 +17,20 @@ pipeline {
     }
     
    stages {
-          stage('SCM') {
-              checkout scm
-          }
-        stage('SonarQube Analysis') {
-          def scannerHome = tool 'SonarScanner';
-            steps{
-                withSonarQubeEnv() {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-             }
-          }
+        stage('SCM') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('SonarScanner') {
+          def sonarProps = readProperties file: 'sonar-project.properties'
+          sh "sonar-scanner -Dsonar.projectKey=${sonarProps.getProperty('sonar.projectKey')} -Dsonar.sources=${sonarProps.getProperty('sonar.sources')}"
+        }
+      }
+    }
        
        
         stage('Read properties and checkout') {
