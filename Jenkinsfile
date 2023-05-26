@@ -14,20 +14,16 @@ pipeline {
     }
 
     stages {
-        stage('SCM') {
+
+
+
+        stage('Read properties and checkout') {
             steps {
-                checkout scm
-                script{
-                        checkout scmGit(
-                            branches: [[name: '*/main']],
-                            extensions: [],
-                            userRemoteConfigs: [[url: 'https://github.com/JesusMoralesCa/Java-Node.git']]
-                        )
-                }
+                WBuild()
             }
         }
-
-        stage('SonarQube Analysis') {
+        
+         stage('SonarQube Analysis') {
             steps {
                 script {
                     def sonarProps = readProperties file: 'sonar-project.properties'
@@ -38,11 +34,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Read properties and checkout') {
-            steps {
-                WBuild()
-            }
-        }
+        
     }
 }
