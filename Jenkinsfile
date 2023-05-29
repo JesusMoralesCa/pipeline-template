@@ -37,10 +37,21 @@ pipeline {
                         )
                             def sonarProps = readProperties file: 'sonar-project.properties'
                             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']} -Dsonar.language=${sonarProps['sonar.language']} -Dsonar.java.binaries=build/classes"
-                            waitForQualityGate abortPipeline: false
+                           
                         }
                     }
                 }
+                
+                
+     post {
+        always {
+            script {
+                waitForQualityGate abortPipeline: false
+            }
+        }
+    }
+                
+                
             }
 
     }
