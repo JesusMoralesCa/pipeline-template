@@ -26,6 +26,13 @@ pipeline {
          stage('SonarQube Analysis') {
             steps {
                 script {
+                       checkout scmGit(
+        branches: [[name: '*/main']],
+        extensions: [],
+        userRemoteConfigs: [[url: 'https://github.com/JesusMoralesCa/pipeline-template.git']]
+    )
+                    
+                    
                     def sonarProps = readProperties file: 'sonar-project.properties'
                     def scannerHome = tool 'SonarScanner';
                     withSonarQubeEnv {
