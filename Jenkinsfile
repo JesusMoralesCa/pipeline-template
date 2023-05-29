@@ -30,11 +30,12 @@ pipeline {
             steps {
                 script{
                   
-                    //def sonarProps = readProperties file: 'sonar-project.properties'
+                    
                     def scannerHome = tool 'SonarScanner';
                     withSonarQubeEnv() {
                          WBuild()
-                        //sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']}"
+                         def sonarProps = readProperties file: 'sonar-project.properties'
+                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']}"
                     }                  
                 }
             }
