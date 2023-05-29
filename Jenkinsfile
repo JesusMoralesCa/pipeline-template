@@ -16,7 +16,7 @@ pipeline {
     stages {
 
 
-
+/*
         stage('Read properties and checkout') {
             steps {
                 WBuild()
@@ -25,13 +25,14 @@ pipeline {
                 
             }
         }
-     
+     */
          stage('SonarQube Analysis') {
             steps {
                 script{
                         def sonarProps = readProperties file: 'sonar-project.properties'
                     def scannerHome = tool 'SonarScanner';
                     withSonarQubeEnv {
+                        WBuild()
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']}"
                     }                  
                 }
