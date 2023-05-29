@@ -25,7 +25,7 @@ pipeline {
         
          stage('SonarQube Analysis') {
             steps {
-                    
+                script{
                                 checkout scmGit(
         branches: [[name: '*/main']],
         extensions: [],
