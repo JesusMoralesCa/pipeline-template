@@ -39,20 +39,8 @@ pipeline {
                             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']} -Dsonar.language=${sonarProps['sonar.language']} -Dsonar.java.binaries=build/classes"
                            
                         }
-                    }
-                }
-                
-                
-     post {
-        always {
-            script {
-                waitForQualityGate abortPipeline: false
-            }
+                  }
+             }  
         }
-    }
-                
-                
-            }
-
     }
 }
