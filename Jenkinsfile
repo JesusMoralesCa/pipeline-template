@@ -16,7 +16,6 @@ pipeline {
     stages {
 
 
-/*
         stage('Read properties and checkout') {
             steps {
                 WBuild()
@@ -25,15 +24,12 @@ pipeline {
                 
             }
         }
-     */
          stage('SonarQube Analysis') {
             steps {
                 script{
-                  
-                    
                     def scannerHome = tool 'SonarScanner';
                     withSonarQubeEnv() {
-                         WBuild()
+                         
                          checkout scmGit(
                             branches: [[name: '*/main']],
                             extensions: [],
