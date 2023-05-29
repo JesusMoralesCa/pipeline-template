@@ -15,7 +15,7 @@ pipeline {
 
     stages {
 
-
+/*
         stage('Read properties and checkout') {
             steps {
                 WBuild()
@@ -24,6 +24,7 @@ pipeline {
                 
             }
         }
+        */
          stage('SonarQube Analysis') {
             steps {
                 script{
