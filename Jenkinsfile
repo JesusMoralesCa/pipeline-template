@@ -20,27 +20,24 @@ pipeline {
         stage('Read properties and checkout') {
             steps {
                 WBuild()
-            }
-        }
-        
-         stage('SonarQube Analysis') {
-            steps {
-                script{
-                                checkout scmGit(
-        branches: [[name: '*/main']],
-        extensions: [],
-        userRemoteConfigs: [[url: 'https://github.com/JesusMoralesCa/Java-Node.git']]
-    )
-                    
-                    
                     def sonarProps = readProperties file: 'sonar-project.properties'
                     def scannerHome = tool 'SonarScanner';
                     withSonarQubeEnv {
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${sonarProps['sonar.projectKey']} -Dsonar.sources=${sonarProps['sonar.sources']}"
                     }
+                
+                
+            }
+        }
+     /*   
+         stage('SonarQube Analysis') {
+            steps {
+                script{
+                                        
+                    
                 }
             }
         }
-        
+        */
     }
 }
