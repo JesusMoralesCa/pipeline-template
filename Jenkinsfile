@@ -17,8 +17,8 @@ pipeline {
 
         stage('Read properties and checkout') {
             steps {
-                //WBuild()
-                BuildSonarqube()
+                WBuild()
+
                   
                 
                 
