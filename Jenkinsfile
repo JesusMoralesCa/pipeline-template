@@ -30,7 +30,7 @@ pipeline {
                     script {
                         def scannerHome = tool 'SonarScanner'
                         withSonarQubeEnv {
-                               checkout scmGit(
+                            checkout scmGit(
                             branches: [[name: '*/main']],
                             extensions: [],
                             userRemoteConfigs: [[url: "https://github.com/JesusMoralesCa/Java-Node.git"]]
