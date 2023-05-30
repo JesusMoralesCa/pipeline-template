@@ -1,4 +1,4 @@
-@Library('java-node') _
+@Library('SharedLibraryTest') _
 
 pipeline {
     agent {
