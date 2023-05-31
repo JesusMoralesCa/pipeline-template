@@ -7,6 +7,7 @@ pipeline {
 
     tools {
         maven 'maven'
+        nodejs 'Node'
     }
 
     environment {
