@@ -1,6 +1,6 @@
 stages:
-  - stage: BuildJava
-  - stage: TestJava
+  - stage: Build
+  - stage: Test
   - stage: DockerBuild
     
 
